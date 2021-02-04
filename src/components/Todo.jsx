@@ -6,13 +6,24 @@ import { TiEdit } from 'react-icons/ti';
 
 
 
-const Todo = ({ todos, completeTodo, removeTodo }) => {
+const Todo = ({ todos, completeTodo, removeTodo , updateTodo }) => {
 //state
     const [edit, setEdit] = useState({
         id: null,
         value: ""
     });
 
+    const submitUpdate = value => {
+        updateTodo(edit.id, value)
+        setEdit({
+            id: null,
+            value: ""
+        })
+    }
+
+    if(edit.id) return <TodoForm edit={edit} onSubmit={submitUpdate} />
+
+    
     return todos.map( (todo, index) => (
         <div 
         className={todo.isComplete ? "todo-row complete" : "todo-row"} 
