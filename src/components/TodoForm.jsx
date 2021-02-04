@@ -29,37 +29,37 @@ const TodoForm = (props) => {
 
     return (
         <form onSubmit={handleSubmit} className='todo-form'>
-          {props.edit ? (
+            {props.edit ? (
             <>
-              <input
+                <input
                 placeholder='Update your item'
                 value={formInput}
                 onChange={handleChange}
                 name='text'
                 ref={focus}
                 className='todo-input edit'
-              />
-              <button onClick={handleSubmit} className='todo-button edit'>
-                Update
-              </button>
+                />
+                <button onClick={handleSubmit} className='todo-button edit'>
+                    Update
+                </button>
             </>
-          ) : (
+            )  : (
             <>
-              <input
+                <input
                 placeholder='Add a todo'
                 value={formInput}
                 onChange={handleChange}
                 name='text'
                 className='todo-input'
                 ref={focus}
-              />
-              <button onClick={handleSubmit} className='todo-button'>
+                />
+                <button onClick={handleSubmit} className='todo-button'>
                 Add todo
-              </button>
+                </button>
             </>
-          )}
+            )}
         </form>
-      );
+    );
 };
 
 
